@@ -1,0 +1,179 @@
+{
+	"id": "29123712-578b-48cf-bb16-5d1fc7f76829",
+	"name": "Trello",
+	"timestamp": "2022-07-13T00:57:43.703Z",
+	"collection_id": "12451366-9c4d2c42-d8df-4dc1-93e0-ab999eb34c61",
+	"folder_id": 0,
+	"environment_id": "12451366-0f953115-8e5e-4ea2-94a2-3d023ef03b17",
+	"totalPass": 0,
+	"totalFail": 7,
+	"results": [
+		{
+			"id": "52c77195-51b5-4d68-b406-b8e411152507",
+			"name": "Get All Boards",
+			"url": "https://api.trello.com/1/members/mahmoudabdelfattah11?boards=open&key=c16e04542adbdf5ff43549a92a4d1443&token=18f4957390e2af5c15cd667df05415f707fae6d843ca1a882b063c04c03171c6",
+			"time": 414,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				414
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "352a8512-dcb2-4f65-af6f-67ffe5a8233f",
+			"name": "Create board",
+			"url": "https://api.trello.com/1/boards/?name=My%20board%20name%2034&key=c16e04542adbdf5ff43549a92a4d1443&token=18f4957390e2af5c15cd667df05415f707fae6d843ca1a882b063c04c03171c6&defaultLists=true&idOrganization=60ca48356921131faa638937",
+			"time": 217,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 200": false,
+				"Board should be created": false,
+				"Board should be private": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Board should be created": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Board should be private": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				217
+			],
+			"allTests": [
+				{
+					"Status code is 200": false,
+					"Board should be created": false,
+					"Board should be private": false
+				}
+			]
+		},
+		{
+			"id": "3a3c01c8-6cc8-4763-9f6a-67f4d430c11b",
+			"name": "Create New List",
+			"url": "https://api.trello.com/1/lists?name=List%20Number%201&idBoard=null&key=c16e04542adbdf5ff43549a92a4d1443&token=18f4957390e2af5c15cd667df05415f707fae6d843ca1a882b063c04c03171c6",
+			"time": 182,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 200": false,
+				"Check the list is created successfully": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Check the list is created successfully": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				182
+			],
+			"allTests": [
+				{
+					"Status code is 200": false,
+					"Check the list is created successfully": false
+				}
+			]
+		},
+		{
+			"id": "a1efe126-3b42-4adf-9873-ac096cc1aa07",
+			"name": "Archieve the List",
+			"url": "https://api.trello.com/1/lists/62ce1528ddf4968c5c4b91d0/closed?key=c16e04542adbdf5ff43549a92a4d1443&token=18f4957390e2af5c15cd667df05415f707fae6d843ca1a882b063c04c03171c6",
+			"time": 189,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				189
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "193bc0d8-72b9-42ad-81fa-c2c5c4d06682",
+			"name": "Create TODO list",
+			"url": "https://api.trello.com/1/boards/null/lists?key=c16e04542adbdf5ff43549a92a4d1443&token=18f4957390e2af5c15cd667df05415f707fae6d843ca1a882b063c04c03171c6&name=TODO55",
+			"time": 209,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 200": false,
+				"Should check name of list": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Should check name of list": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				209
+			],
+			"allTests": [
+				{
+					"Status code is 200": false,
+					"Should check name of list": false
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 1211,
+	"collection": {
+		"requests": [
+			{
+				"id": "52c77195-51b5-4d68-b406-b8e411152507",
+				"method": "GET"
+			},
+			{
+				"id": "352a8512-dcb2-4f65-af6f-67ffe5a8233f",
+				"method": "POST"
+			},
+			{
+				"id": "3a3c01c8-6cc8-4763-9f6a-67f4d430c11b",
+				"method": "POST"
+			},
+			{
+				"id": "a1efe126-3b42-4adf-9873-ac096cc1aa07",
+				"method": "PUT"
+			},
+			{
+				"id": "193bc0d8-72b9-42ad-81fa-c2c5c4d06682",
+				"method": "POST"
+			}
+		]
+	}
+}

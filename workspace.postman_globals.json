@@ -1,0 +1,36 @@
+{
+	"id": "6273e755-aa80-41e3-8ace-aebdd10be055",
+	"values": [
+		{
+			"key": "trelloKey",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "trelloToken",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "num",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "idOfBoard",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "BaseUrl",
+			"value": "https://fakerestapi.azurewebsites.net/",
+			"enabled": true
+		}
+	],
+	"name": "Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2022-07-13T00:54:32.635Z",
+	"_postman_exported_using": "Postman/9.24.2"
+}

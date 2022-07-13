@@ -1,0 +1,244 @@
+{
+	"id": "e8ff0fa0-a44f-4120-9c98-22bb9e3a23cf",
+	"name": "Fakerestapi",
+	"timestamp": "2022-07-13T00:55:12.506Z",
+	"collection_id": "12451366-8e39682c-212e-4dc3-814d-5961aa48109a",
+	"folder_id": 0,
+	"environment_id": "12451366-0f953115-8e5e-4ea2-94a2-3d023ef03b17",
+	"totalPass": 9,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "dfb8a379-5d3b-4bdb-916f-c793697d2923",
+			"name": "Get All Authors",
+			"url": "https://fakerestapi.azurewebsites.net/api/v1/Authors",
+			"time": 512,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body matches string": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				512
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body matches string": true
+				}
+			]
+		},
+		{
+			"id": "6dfcce7f-3753-49b9-82ef-55e24be5fdaa",
+			"name": "Create Author",
+			"url": "https://fakerestapi.azurewebsites.net/api/v1/Authors",
+			"time": 92,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Check the status code is 200": true,
+				"Validate the Author id is created": true
+			},
+			"testPassFailCounts": {
+				"Check the status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate the Author id is created": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				92
+			],
+			"allTests": [
+				{
+					"Check the status code is 200": true,
+					"Validate the Author id is created": true
+				}
+			]
+		},
+		{
+			"id": "6d642bcd-263d-4f12-b8b8-06a200247eda",
+			"name": "Update Author",
+			"url": "https://fakerestapi.azurewebsites.net/api/v1/Authors/3",
+			"time": 79,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				79
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "66d3c876-1bd1-4136-b045-7e8300e60992",
+			"name": "Get Author",
+			"url": "https://fakerestapi.azurewebsites.net/api/v1/Authors/1",
+			"time": 74,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				74
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "110bb7a4-0e98-4773-8322-cd02f8a946c5",
+			"name": "Get Author with Book id",
+			"url": "https://fakerestapi.azurewebsites.net/api/v1/Authors/authors/books/1",
+			"time": 81,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Validate the bookes id is returned successfully with Author": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate the bookes id is returned successfully with Author": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				81
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Validate the bookes id is returned successfully with Author": true
+				}
+			]
+		},
+		{
+			"id": "08d2f40d-4e0d-4b04-8ee9-af7d9cdbe8c1",
+			"name": "Delete The Author",
+			"url": "https://fakerestapi.azurewebsites.net/api/v1/Authors/3",
+			"time": 100,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				100
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "a9a6c77a-1ab5-48f0-b244-d10259a0f303",
+			"name": "Check the Author is deleted",
+			"url": "https://fakerestapi.azurewebsites.net/api/v1/Authors/3",
+			"time": 81,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				81
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 1019,
+	"collection": {
+		"requests": [
+			{
+				"id": "dfb8a379-5d3b-4bdb-916f-c793697d2923",
+				"method": "GET"
+			},
+			{
+				"id": "6dfcce7f-3753-49b9-82ef-55e24be5fdaa",
+				"method": "POST"
+			},
+			{
+				"id": "6d642bcd-263d-4f12-b8b8-06a200247eda",
+				"method": "PUT"
+			},
+			{
+				"id": "66d3c876-1bd1-4136-b045-7e8300e60992",
+				"method": "GET"
+			},
+			{
+				"id": "110bb7a4-0e98-4773-8322-cd02f8a946c5",
+				"method": "GET"
+			},
+			{
+				"id": "08d2f40d-4e0d-4b04-8ee9-af7d9cdbe8c1",
+				"method": "DELETE"
+			},
+			{
+				"id": "a9a6c77a-1ab5-48f0-b244-d10259a0f303",
+				"method": "GET"
+			}
+		]
+	}
+}

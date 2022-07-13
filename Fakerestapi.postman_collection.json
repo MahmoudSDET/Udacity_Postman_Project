@@ -1,0 +1,383 @@
+{
+	"info": {
+		"_postman_id": "8e39682c-212e-4dc3-814d-5961aa48109a",
+		"name": "Fakerestapi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12451366"
+	},
+	"item": [
+		{
+			"name": "Get All Authors",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"idBook\");\r",
+							"\r",
+							"    pm.collectionVariables.set(\"IdAuthor\",pm.response.json()[pm.response.json().length-1].id+1)\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.collectionVariables.set(\"IdAuthor\",pm.response.json()[pm.response.json().length-1].id+1)\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"console.log(pm.response.json()[pm.response.json().length-1].id+1)\r",
+							"//var collectionVar=pm.collectionVariables.get(\"IdAuthor\")\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}api/v1/Authors",
+					"host": [
+						"{{BaseUrl}}api"
+					],
+					"path": [
+						"v1",
+						"Authors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Author",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest('https://fakerestapi.azurewebsites.net/api/v1/Authors', function (err, res) {\r",
+							"    console.log(res);\r",
+							"    \r",
+							"    console.log(res.json()[res.json().length-1].id+1);\r",
+							"    pm.collectionVariables.set(\"IdAuthor\",res.json()[1].id+1);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"// expected result\r",
+							"pm.test(\"Check the status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"var expected=pm.collectionVariables.get(\"IdAuthor\")\r",
+							"\r",
+							"// actual\r",
+							"\r",
+							"pm.test(\"Validate the Author id is created\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.id).to.eql(parseInt(expected));\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": {{IdAuthor}},\r\n  \"idBook\": {{BookId}},\r\n  \"firstName\": \"{{$randomFirstName}}\",\r\n  \"lastName\": \"{{$randomLastName}}\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{BaseUrl}}api/v1/Authors",
+					"host": [
+						"{{BaseUrl}}api"
+					],
+					"path": [
+						"v1",
+						"Authors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Author",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"\r",
+							"var updatebookid=pm.collectionVariables.get(\"NewUpdatedBookId\");\r",
+							"\r",
+							"pm.collectionVariables.set(\"BookId\",updatebookid);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": {{IdAuthor}},\r\n  \"idBook\":{{NewUpdatedBookId}},\r\n  \"firstName\": \"{{$randomFirstName}}\",\r\n  \"lastName\": \"{{$randomLastName}}\"\r\n}"
+				},
+				"url": {
+					"raw": "https://fakerestapi.azurewebsites.net/api/v1/Authors/{{IdAuthor}}",
+					"protocol": "https",
+					"host": [
+						"fakerestapi",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Authors",
+						"{{IdAuthor}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Author",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}api/v1/Authors/1",
+					"host": [
+						"{{BaseUrl}}api"
+					],
+					"path": [
+						"v1",
+						"Authors",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Author with Book id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// expected result\r",
+							"\r",
+							"var expectedresult=pm.collectionVariables.get(\"BookId\")\r",
+							"\r",
+							"console.log()\r",
+							"// actual\r",
+							"\r",
+							"pm.test(\"Validate the bookes id is returned successfully with Author\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[1].idBook).to.eql(parseInt(expectedresult));\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}api/v1/Authors/authors/books/{{BookId}}",
+					"host": [
+						"{{BaseUrl}}api"
+					],
+					"path": [
+						"v1",
+						"Authors",
+						"authors",
+						"books",
+						"{{BookId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete The Author",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}api/v1/Authors/{{IdAuthor}}",
+					"host": [
+						"{{BaseUrl}}api"
+					],
+					"path": [
+						"v1",
+						"Authors",
+						"{{IdAuthor}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check the Author is deleted",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"/*\r",
+							"// Expected Result\r",
+							"\r",
+							"var Expected=\"Not Found\"\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.title).to.eql(\"Not Found\");\r",
+							"});*/"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}api/v1/Authors/{{IdAuthor}}",
+					"host": [
+						"{{BaseUrl}}api"
+					],
+					"path": [
+						"v1",
+						"Authors",
+						"{{IdAuthor}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "IdAuthor",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "AuthorFirstName",
+			"value": "TestFirstName1",
+			"type": "string"
+		},
+		{
+			"key": "AuthorLastName",
+			"value": "TestFirstName2",
+			"type": "string"
+		},
+		{
+			"key": "BookId",
+			"value": "2",
+			"type": "string"
+		},
+		{
+			"key": "NewUpdatedBookId",
+			"value": "1",
+			"type": "string"
+		}
+	]
+}
