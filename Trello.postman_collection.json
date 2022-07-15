@@ -8,6 +8,19 @@
 	"item": [
 		{
 			"name": "Get All Boards",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -46,33 +59,14 @@
 			"name": "Create board",
 			"event": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"pm.test(\"Board should be created\", function () {\r",
-							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.name).to.eql(pm.globals.get(\"boardName\"));\r",
-							"    pm.expect(jsonData.closed).to.eql(false);\r",
-							"});\r",
-							"pm.test(\"Board should be private\", function () {\r",
-							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.prefs.permissionLevel).to.eql(\"private\");\r",
-							"});\r",
-							"var jsonData2 = pm.response.json();\r",
-							"pm.globals.set(\"idOfBoard\", jsonData2.id);"
-						],
-						"type": "text/javascript"
-					}
-				},
-				{
 					"listen": "prerequest",
 					"script": {
 						"exec": [
 							"\r",
-							"pm.globals.set(\"boardName\", getRandomBoardName());\r",
+							"pm.sendRequest('https://api.trello.com/1/members/mahmoudabdelfattah11?boards=open&key=c16e04542adbdf5ff43549a92a4d1443&token=18f4957390e2af5c15cd667df05415f707fae6d843ca1a882b063c04c03171c6', function (err, res) {\r",
+							"    pm.collectionVariables.set(\"boardName\", getRandomBoardName());\r",
+							"    \r",
+							"});\r",
 							"\r",
 							"function getRandomBoardName () {\r",
 							"    if(!pm.globals.has(\"num\")) {\r",
@@ -89,13 +83,35 @@
 						],
 						"type": "text/javascript"
 					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Board should be created\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.name).to.eql(pm.collectionVariables.get(\"boardName\"));\r",
+							"    pm.expect(jsonData.closed).to.eql(false);\r",
+							"});\r",
+							"pm.test(\"Board should be private\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.prefs.permissionLevel).to.eql(\"private\");\r",
+							"});\r",
+							"var jsonData2 = pm.response.json();\r",
+							"pm.globals.set(\"idOfBoard\", jsonData2.id);"
+						],
+						"type": "text/javascript"
+					}
 				}
 			],
 			"request": {
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "https://api.trello.com/1/boards/?name={{boardName}}&key={{trelloKey}}&token={{trelloToken}}&defaultLists=true&idOrganization=60ca48356921131faa638937",
+					"raw": "https://api.trello.com/1/boards/?name={{boardName}}&key={{trelloKey}}&token={{trelloToken}}&defaultLists=true&idOrganization=612c8f4f51f71c4e718f2fee",
 					"protocol": "https",
 					"host": [
 						"api",
@@ -126,7 +142,7 @@
 						},
 						{
 							"key": "idOrganization",
-							"value": "60ca48356921131faa638937"
+							"value": "612c8f4f51f71c4e718f2fee"
 						}
 					]
 				}
@@ -143,10 +159,19 @@
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
+							"\r",
+							"//expected result \r",
+							"\r",
+							"var expectedResult=pm.collectionVariables.get(\"ListName\")\r",
 							"pm.test(\"Check the list is created successfully\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.value).to.eql(100);\r",
-							"});"
+							"    pm.expect(jsonData.name).to.eql(expectedResult);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.collectionVariables.set(\"ListID\", pm.response.json().id)\r",
+							"\r",
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -192,6 +217,17 @@
 		{
 			"name": "Archieve the List",
 			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
 				{
 					"listen": "prerequest",
 					"script": {
@@ -259,7 +295,7 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "https://api.trello.com/1/boards/:id/lists?key={{trelloKey}}&token={{trelloToken}}&name=TODO55",
+					"raw": "https://api.trello.com/1/boards/:id/lists?key={{trelloKey}}&token={{trelloToken}}&name=TODO",
 					"protocol": "https",
 					"host": [
 						"api",
@@ -288,7 +324,7 @@
 						},
 						{
 							"key": "name",
-							"value": "TODO55"
+							"value": "TODO"
 						}
 					],
 					"variable": [
@@ -576,7 +612,8 @@
 		},
 		{
 			"key": "ListID",
-			"value": ""
+			"value": "",
+			"type": "string"
 		}
 	]
 }

@@ -1,157 +1,301 @@
 {
-	"id": "29123712-578b-48cf-bb16-5d1fc7f76829",
+	"id": "5c1e46d8-37bf-4d0b-91e5-14f4afa84ab8",
 	"name": "Trello",
-	"timestamp": "2022-07-13T00:57:43.703Z",
+	"timestamp": "2022-07-15T23:48:53.191Z",
 	"collection_id": "12451366-9c4d2c42-d8df-4dc1-93e0-ab999eb34c61",
 	"folder_id": 0,
 	"environment_id": "12451366-0f953115-8e5e-4ea2-94a2-3d023ef03b17",
-	"totalPass": 0,
-	"totalFail": 7,
+	"totalPass": 16,
+	"totalFail": 0,
 	"results": [
 		{
 			"id": "52c77195-51b5-4d68-b406-b8e411152507",
 			"name": "Get All Boards",
 			"url": "https://api.trello.com/1/members/mahmoudabdelfattah11?boards=open&key=c16e04542adbdf5ff43549a92a4d1443&token=18f4957390e2af5c15cd667df05415f707fae6d843ca1a882b063c04c03171c6",
-			"time": 414,
+			"time": 256,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
-			"tests": {},
-			"testPassFailCounts": {},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
 			"times": [
-				414
+				256
 			],
 			"allTests": [
-				{}
+				{
+					"Status code is 200": true
+				}
 			]
 		},
 		{
 			"id": "352a8512-dcb2-4f65-af6f-67ffe5a8233f",
 			"name": "Create board",
-			"url": "https://api.trello.com/1/boards/?name=My%20board%20name%2034&key=c16e04542adbdf5ff43549a92a4d1443&token=18f4957390e2af5c15cd667df05415f707fae6d843ca1a882b063c04c03171c6&defaultLists=true&idOrganization=60ca48356921131faa638937",
-			"time": 217,
+			"url": "https://api.trello.com/1/boards/?name=My%20board%20name%2047&key=c16e04542adbdf5ff43549a92a4d1443&token=18f4957390e2af5c15cd667df05415f707fae6d843ca1a882b063c04c03171c6&defaultLists=true&idOrganization=612c8f4f51f71c4e718f2fee",
+			"time": 365,
 			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
+				"code": 200,
+				"name": "OK"
 			},
 			"tests": {
-				"Status code is 200": false,
-				"Board should be created": false,
-				"Board should be private": false
+				"Status code is 200": true,
+				"Board should be created": true,
+				"Board should be private": true
 			},
 			"testPassFailCounts": {
 				"Status code is 200": {
-					"pass": 0,
-					"fail": 1
+					"pass": 1,
+					"fail": 0
 				},
 				"Board should be created": {
-					"pass": 0,
-					"fail": 1
+					"pass": 1,
+					"fail": 0
 				},
 				"Board should be private": {
-					"pass": 0,
-					"fail": 1
+					"pass": 1,
+					"fail": 0
 				}
 			},
 			"times": [
-				217
+				365
 			],
 			"allTests": [
 				{
-					"Status code is 200": false,
-					"Board should be created": false,
-					"Board should be private": false
+					"Status code is 200": true,
+					"Board should be created": true,
+					"Board should be private": true
 				}
 			]
 		},
 		{
 			"id": "3a3c01c8-6cc8-4763-9f6a-67f4d430c11b",
 			"name": "Create New List",
-			"url": "https://api.trello.com/1/lists?name=List%20Number%201&idBoard=null&key=c16e04542adbdf5ff43549a92a4d1443&token=18f4957390e2af5c15cd667df05415f707fae6d843ca1a882b063c04c03171c6",
-			"time": 182,
+			"url": "https://api.trello.com/1/lists?name=List%20Number%201&idBoard=62d1fce22e262125643a53a1&key=c16e04542adbdf5ff43549a92a4d1443&token=18f4957390e2af5c15cd667df05415f707fae6d843ca1a882b063c04c03171c6",
+			"time": 243,
 			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
+				"code": 200,
+				"name": "OK"
 			},
 			"tests": {
-				"Status code is 200": false,
-				"Check the list is created successfully": false
+				"Status code is 200": true,
+				"Check the list is created successfully": true
 			},
 			"testPassFailCounts": {
 				"Status code is 200": {
-					"pass": 0,
-					"fail": 1
+					"pass": 1,
+					"fail": 0
 				},
 				"Check the list is created successfully": {
-					"pass": 0,
-					"fail": 1
+					"pass": 1,
+					"fail": 0
 				}
 			},
 			"times": [
-				182
+				243
 			],
 			"allTests": [
 				{
-					"Status code is 200": false,
-					"Check the list is created successfully": false
+					"Status code is 200": true,
+					"Check the list is created successfully": true
 				}
 			]
 		},
 		{
 			"id": "a1efe126-3b42-4adf-9873-ac096cc1aa07",
 			"name": "Archieve the List",
-			"url": "https://api.trello.com/1/lists/62ce1528ddf4968c5c4b91d0/closed?key=c16e04542adbdf5ff43549a92a4d1443&token=18f4957390e2af5c15cd667df05415f707fae6d843ca1a882b063c04c03171c6",
-			"time": 189,
+			"url": "https://api.trello.com/1/lists/62d1fce28be9e91d1d3c9204?closed=true&key=c16e04542adbdf5ff43549a92a4d1443&token=18f4957390e2af5c15cd667df05415f707fae6d843ca1a882b063c04c03171c6",
+			"time": 234,
 			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
+				"code": 200,
+				"name": "OK"
 			},
-			"tests": {},
-			"testPassFailCounts": {},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
 			"times": [
-				189
+				234
 			],
 			"allTests": [
-				{}
+				{
+					"Status code is 200": true
+				}
 			]
 		},
 		{
 			"id": "193bc0d8-72b9-42ad-81fa-c2c5c4d06682",
 			"name": "Create TODO list",
-			"url": "https://api.trello.com/1/boards/null/lists?key=c16e04542adbdf5ff43549a92a4d1443&token=18f4957390e2af5c15cd667df05415f707fae6d843ca1a882b063c04c03171c6&name=TODO55",
-			"time": 209,
+			"url": "https://api.trello.com/1/boards/62d1fce22e262125643a53a1/lists?key=c16e04542adbdf5ff43549a92a4d1443&token=18f4957390e2af5c15cd667df05415f707fae6d843ca1a882b063c04c03171c6&name=TODO",
+			"time": 279,
 			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
+				"code": 200,
+				"name": "OK"
 			},
 			"tests": {
-				"Status code is 200": false,
-				"Should check name of list": false
+				"Status code is 200": true,
+				"Should check name of list": true
 			},
 			"testPassFailCounts": {
 				"Status code is 200": {
-					"pass": 0,
-					"fail": 1
+					"pass": 1,
+					"fail": 0
 				},
 				"Should check name of list": {
-					"pass": 0,
-					"fail": 1
+					"pass": 1,
+					"fail": 0
 				}
 			},
 			"times": [
-				209
+				279
 			],
 			"allTests": [
 				{
-					"Status code is 200": false,
-					"Should check name of list": false
+					"Status code is 200": true,
+					"Should check name of list": true
+				}
+			]
+		},
+		{
+			"id": "f1c10c42-803d-48dc-bd85-f78290599b76",
+			"name": "Create DONE list",
+			"url": "https://api.trello.com/1/boards/62d1fce22e262125643a53a1/lists?key=c16e04542adbdf5ff43549a92a4d1443&token=18f4957390e2af5c15cd667df05415f707fae6d843ca1a882b063c04c03171c6&name=DONE",
+			"time": 267,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Should check name of list": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Should check name of list": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				267
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Should check name of list": true
+				}
+			]
+		},
+		{
+			"id": "f99cc8d9-79e0-4346-8ba3-6c98bc5c9f54",
+			"name": "Create Card in TODO list",
+			"url": "https://api.trello.com/1/cards?key=c16e04542adbdf5ff43549a92a4d1443&token=18f4957390e2af5c15cd667df05415f707fae6d843ca1a882b063c04c03171c6&idList=62d1fce3823b05261a501e57&name=Learn%20Postman",
+			"time": 354,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Should check name of list": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Should check name of list": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				354
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Should check name of list": true
+				}
+			]
+		},
+		{
+			"id": "9378865a-fae5-474c-b6fb-5b4801dfd300",
+			"name": "Move card from TODO list to DONE list",
+			"url": "https://api.trello.com/1/cards/62d1fce3c243446c7e6b624c?key=c16e04542adbdf5ff43549a92a4d1443&token=18f4957390e2af5c15cd667df05415f707fae6d843ca1a882b063c04c03171c6&idList=62d1fce369ee4d0c1a55d263",
+			"time": 282,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Should check name of list": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Should check name of list": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				282
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Should check name of list": true
+				}
+			]
+		},
+		{
+			"id": "e3a1e0ba-e3fe-42d5-8b84-593178c23d4c",
+			"name": "Delete board",
+			"url": "https://api.trello.com/1/boards/62d1fce22e262125643a53a1?key=c16e04542adbdf5ff43549a92a4d1443&token=18f4957390e2af5c15cd667df05415f707fae6d843ca1a882b063c04c03171c6",
+			"time": 465,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				465
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
 				}
 			]
 		}
 	],
 	"count": 1,
-	"totalTime": 1211,
+	"totalTime": 2745,
 	"collection": {
 		"requests": [
 			{
@@ -173,6 +317,22 @@
 			{
 				"id": "193bc0d8-72b9-42ad-81fa-c2c5c4d06682",
 				"method": "POST"
+			},
+			{
+				"id": "f1c10c42-803d-48dc-bd85-f78290599b76",
+				"method": "POST"
+			},
+			{
+				"id": "f99cc8d9-79e0-4346-8ba3-6c98bc5c9f54",
+				"method": "POST"
+			},
+			{
+				"id": "9378865a-fae5-474c-b6fb-5b4801dfd300",
+				"method": "PUT"
+			},
+			{
+				"id": "e3a1e0ba-e3fe-42d5-8b84-593178c23d4c",
+				"method": "DELETE"
 			}
 		]
 	}
