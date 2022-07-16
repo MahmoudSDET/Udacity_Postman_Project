@@ -242,7 +242,7 @@
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "https://api.trello.com/1/lists/{{ListID}}/closed?key={{trelloKey}}&token={{trelloToken}}",
+					"raw": "https://api.trello.com/1/lists/{{ListID}}?closed=true&key={{trelloKey}}&token={{trelloToken}}",
 					"protocol": "https",
 					"host": [
 						"api",
@@ -252,10 +252,13 @@
 					"path": [
 						"1",
 						"lists",
-						"{{ListID}}",
-						"closed"
+						"{{ListID}}"
 					],
 					"query": [
+						{
+							"key": "closed",
+							"value": "true"
+						},
 						{
 							"key": "key",
 							"value": "{{trelloKey}}"
