@@ -15,6 +15,13 @@
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"var data = pm.response.json().boards[0];\r",
+							"\r",
+							"pm.test(\"Validate that number of boards greater than 1 \", function () {\r",
+							"    pm.expect(data.length>1);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -223,6 +230,14 @@
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check closed value is true\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.closed).to.eql(true);\r",
+							"});\r",
+							"pm.test(\"check Set-Cookie is contain isEnterpriseAdmin%3Dfalse\", function () {\r",
+							"   pm.expect(pm.response.headers.get(\"Set-Cookie\")).to.include(\"isEnterpriseAdmin%3Dfalse\");\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -535,6 +550,13 @@
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
+							"\r",
+							"pm.test(\"validate that response body include board is 'removed successfully'\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"board is removed successfully\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
 							"pm.globals.unset(\"boardName\");"
 						],
 						"type": "text/javascript"

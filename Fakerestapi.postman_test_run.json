@@ -1,58 +1,59 @@
 {
-	"id": "e8ff0fa0-a44f-4120-9c98-22bb9e3a23cf",
+	"id": "8f5264e5-aedd-4322-b637-429d3e1a1972",
 	"name": "Fakerestapi",
-	"timestamp": "2022-07-13T00:55:12.506Z",
+	"timestamp": "2022-07-18T20:52:44.323Z",
 	"collection_id": "12451366-8e39682c-212e-4dc3-814d-5961aa48109a",
 	"folder_id": 0,
 	"environment_id": "12451366-0f953115-8e5e-4ea2-94a2-3d023ef03b17",
 	"totalPass": 9,
-	"totalFail": 0,
+	"totalFail": 2,
 	"results": [
 		{
 			"id": "dfb8a379-5d3b-4bdb-916f-c793697d2923",
-			"name": "Get All Authors",
+			"name": "/api/v1/Authors",
 			"url": "https://fakerestapi.azurewebsites.net/api/v1/Authors",
-			"time": 512,
+			"time": 1176,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
 			"tests": {
 				"Status code is 200": true,
-				"Body matches string": true
+				"Check Body contains 'id' , 'idBook' , 'firstName' , 'lastName'": true
 			},
 			"testPassFailCounts": {
 				"Status code is 200": {
 					"pass": 1,
 					"fail": 0
 				},
-				"Body matches string": {
+				"Check Body contains 'id' , 'idBook' , 'firstName' , 'lastName'": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				512
+				1176
 			],
 			"allTests": [
 				{
 					"Status code is 200": true,
-					"Body matches string": true
+					"Check Body contains 'id' , 'idBook' , 'firstName' , 'lastName'": true
 				}
 			]
 		},
 		{
 			"id": "6dfcce7f-3753-49b9-82ef-55e24be5fdaa",
-			"name": "Create Author",
+			"name": "/api/v1/Authors",
 			"url": "https://fakerestapi.azurewebsites.net/api/v1/Authors",
-			"time": 92,
+			"time": 266,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
 			"tests": {
 				"Check the status code is 200": true,
-				"Validate the Author id is created": true
+				"Validate the Author id is created": true,
+				"firstName or lastName is mandatory": false
 			},
 			"testPassFailCounts": {
 				"Check the status code is 200": {
@@ -62,68 +63,88 @@
 				"Validate the Author id is created": {
 					"pass": 1,
 					"fail": 0
+				},
+				"firstName or lastName is mandatory": {
+					"pass": 0,
+					"fail": 1
 				}
 			},
 			"times": [
-				92
+				266
 			],
 			"allTests": [
 				{
 					"Check the status code is 200": true,
-					"Validate the Author id is created": true
+					"Validate the Author id is created": true,
+					"firstName or lastName is mandatory": false
 				}
 			]
 		},
 		{
 			"id": "6d642bcd-263d-4f12-b8b8-06a200247eda",
-			"name": "Update Author",
-			"url": "https://fakerestapi.azurewebsites.net/api/v1/Authors/3",
-			"time": 79,
+			"name": "/api/v1/Authors/{id}",
+			"url": "https://fakerestapi.azurewebsites.net/api/v1/Authors/603",
+			"time": 265,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
 			"tests": {
-				"Status code is 200": true
+				"Status code is 200": true,
+				"Validate that firstName is 'Mahmoud' and lastName is 'Abdul Fattah'": true
 			},
 			"testPassFailCounts": {
 				"Status code is 200": {
 					"pass": 1,
 					"fail": 0
+				},
+				"Validate that firstName is 'Mahmoud' and lastName is 'Abdul Fattah'": {
+					"pass": 1,
+					"fail": 0
 				}
 			},
 			"times": [
-				79
+				265
 			],
 			"allTests": [
 				{
-					"Status code is 200": true
+					"Status code is 200": true,
+					"Validate that firstName is 'Mahmoud' and lastName is 'Abdul Fattah'": true
 				}
 			]
 		},
 		{
 			"id": "66d3c876-1bd1-4136-b045-7e8300e60992",
-			"name": "Get Author",
-			"url": "https://fakerestapi.azurewebsites.net/api/v1/Authors/1",
-			"time": 74,
+			"name": "/api/v1/Authors/{id}",
+			"url": "https://fakerestapi.azurewebsites.net/api/v1/Authors/603",
+			"time": 224,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
-			"tests": {},
-			"testPassFailCounts": {},
+			"tests": {
+				"Check firstName is 'Mahmoud' and lastName is 'Abdul Fattah'": false
+			},
+			"testPassFailCounts": {
+				"Check firstName is 'Mahmoud' and lastName is 'Abdul Fattah'": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
 			"times": [
-				74
+				224
 			],
 			"allTests": [
-				{}
+				{
+					"Check firstName is 'Mahmoud' and lastName is 'Abdul Fattah'": false
+				}
 			]
 		},
 		{
 			"id": "110bb7a4-0e98-4773-8322-cd02f8a946c5",
-			"name": "Get Author with Book id",
-			"url": "https://fakerestapi.azurewebsites.net/api/v1/Authors/authors/books/1",
-			"time": 81,
+			"name": "/api/v1/Authors/authors/books/{idBook}",
+			"url": "https://fakerestapi.azurewebsites.net/api/v1/Authors/authors/books/10",
+			"time": 209,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -143,7 +164,7 @@
 				}
 			},
 			"times": [
-				81
+				209
 			],
 			"allTests": [
 				{
@@ -154,9 +175,9 @@
 		},
 		{
 			"id": "08d2f40d-4e0d-4b04-8ee9-af7d9cdbe8c1",
-			"name": "Delete The Author",
-			"url": "https://fakerestapi.azurewebsites.net/api/v1/Authors/3",
-			"time": 100,
+			"name": "/api/v1/Authors/{id}",
+			"url": "https://fakerestapi.azurewebsites.net/api/v1/Authors/603",
+			"time": 99,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -171,34 +192,7 @@
 				}
 			},
 			"times": [
-				100
-			],
-			"allTests": [
-				{
-					"Status code is 200": true
-				}
-			]
-		},
-		{
-			"id": "a9a6c77a-1ab5-48f0-b244-d10259a0f303",
-			"name": "Check the Author is deleted",
-			"url": "https://fakerestapi.azurewebsites.net/api/v1/Authors/3",
-			"time": 81,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				81
+				99
 			],
 			"allTests": [
 				{
@@ -208,7 +202,7 @@
 		}
 	],
 	"count": 1,
-	"totalTime": 1019,
+	"totalTime": 2239,
 	"collection": {
 		"requests": [
 			{
@@ -234,10 +228,6 @@
 			{
 				"id": "08d2f40d-4e0d-4b04-8ee9-af7d9cdbe8c1",
 				"method": "DELETE"
-			},
-			{
-				"id": "a9a6c77a-1ab5-48f0-b244-d10259a0f303",
-				"method": "GET"
 			}
 		]
 	}

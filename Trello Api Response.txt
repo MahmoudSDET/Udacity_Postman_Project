@@ -1,0 +1,164 @@
+{
+    "id": "612c8f403891ec63c1f8b358",
+    "aaId": "612c8f396a4c09006a845694",
+    "activityBlocked": false,
+    "avatarHash": "7d4dd4f6ce1187e572162f3688a0c598",
+    "avatarUrl": "https://trello-members.s3.amazonaws.com/612c8f403891ec63c1f8b358/7d4dd4f6ce1187e572162f3688a0c598",
+    "bio": "",
+    "bioData": null,
+    "confirmed": true,
+    "fullName": "mahmoud abdelfattah",
+    "idEnterprise": null,
+    "idEnterprisesDeactivated": [],
+    "idMemberReferrer": null,
+    "idPremOrgsAdmin": [],
+    "initials": "MA",
+    "memberType": "normal",
+    "nonPublic": {},
+    "nonPublicAvailable": true,
+    "products": [],
+    "url": "https://trello.com/mahmoudabdelfattah11",
+    "username": "mahmoudabdelfattah11",
+    "status": "disconnected",
+    "aaBlockSyncUntil": null,
+    "aaEmail": null,
+    "aaEnrolledDate": null,
+    "avatarSource": "none",
+    "credentialsRemovedCount": 0,
+    "domainClaimed": null,
+    "email": "mahmoud.abdelfattah.sdet@gmail.com",
+    "goldSunsetFreeTrialIdOrganization": null,
+    "gravatarHash": "c6fc4922437118bfe38a13bf23015e7a",
+    "idBoards": [
+        "612c91684233c36b8b6c2411",
+        "62cbfe61cbb21b4d437e4ac6",
+        "62cd9f06db452b17fcf8c4fd",
+        "62cda68695996d08a106e38b",
+        "62ce067100c3902e0c95d5a9",
+        "62ce06be761bca83daeeef8a",
+        "62ce1a7fa3c13969e4ed4088",
+        "62d1f2d9d57c853093127c52"
+    ],
+    "idOrganizations": [
+        "612c8f4f51f71c4e718f2fee"
+    ],
+    "idEnterprisesAdmin": [],
+    "limits": {
+        "boards": {
+            "totalPerMember": {
+                "status": "ok",
+                "disableAt": 4500,
+                "warnAt": 3600
+            }
+        },
+        "orgs": {
+            "totalPerMember": {
+                "status": "ok",
+                "disableAt": 850,
+                "warnAt": 680
+            }
+        }
+    },
+    "loginTypes": [
+        "atlassian"
+    ],
+    "marketingOptIn": {
+        "optedIn": true,
+        "date": "2021-08-30T07:56:50.367Z"
+    },
+    "messagesDismissed": [
+        {
+            "_id": "612c8f4fa5f7990a386cf8dd",
+            "name": "team-join-cta-banner-612c8f4f51f71c4e718f2fee",
+            "count": 4,
+            "lastDismissed": "2021-08-30T07:57:04.135Z"
+        }
+    ],
+    "oneTimeMessagesDismissed": [
+        "close-menu-of-first-board",
+        "nusku.views-switcher-upsell-default-open",
+        "headerMemberMenuAddAccount"
+    ],
+    "prefs": {
+        "privacy": {
+            "fullName": "public",
+            "avatar": "public"
+        },
+        "sendSummaries": true,
+        "minutesBetweenSummaries": 60,
+        "minutesBeforeDeadlineToNotify": 1440,
+        "colorBlind": false,
+        "locale": "en-US"
+    },
+    "trophies": [],
+    "uploadedAvatarHash": null,
+    "uploadedAvatarUrl": null,
+    "premiumFeatures": [
+        "additionalBoardBackgrounds",
+        "additionalStickers",
+        "customBoardBackgrounds",
+        "customEmoji",
+        "customStickers",
+        "plugins"
+    ],
+    "isAaMastered": true,
+    "ixUpdate": "155",
+    "boards": [
+        {
+            "id": "62cda68695996d08a106e38b",
+            "name": "My board name 23",
+            "closed": false,
+            "idOrganization": "612c8f4f51f71c4e718f2fee",
+            "pinned": false
+        },
+        {
+            "id": "62ce067100c3902e0c95d5a9",
+            "name": "My board name 30",
+            "closed": false,
+            "idOrganization": "612c8f4f51f71c4e718f2fee",
+            "pinned": false
+        },
+        {
+            "id": "62ce06be761bca83daeeef8a",
+            "name": "My board name 32",
+            "closed": false,
+            "idOrganization": "612c8f4f51f71c4e718f2fee",
+            "pinned": false
+        },
+        {
+            "id": "62ce1a7fa3c13969e4ed4088",
+            "name": "My board name 36",
+            "closed": false,
+            "idOrganization": "612c8f4f51f71c4e718f2fee",
+            "pinned": false
+        },
+        {
+            "id": "62d1f2d9d57c853093127c52",
+            "name": "My board name 40",
+            "closed": false,
+            "idOrganization": "612c8f4f51f71c4e718f2fee",
+            "pinned": false
+        },
+        {
+            "id": "612c91684233c36b8b6c2411",
+            "name": "SDET",
+            "closed": false,
+            "idOrganization": "612c8f4f51f71c4e718f2fee",
+            "pinned": false
+        },
+        {
+            "id": "62cd9f06db452b17fcf8c4fd",
+            "name": "TestBoard",
+            "closed": false,
+            "idOrganization": "612c8f4f51f71c4e718f2fee",
+            "pinned": false
+        },
+        {
+            "id": "62cbfe61cbb21b4d437e4ac6",
+            "name": "TestBoard",
+            "closed": false,
+            "idOrganization": "612c8f4f51f71c4e718f2fee",
+            "pinned": false
+        }
+    ]
+}

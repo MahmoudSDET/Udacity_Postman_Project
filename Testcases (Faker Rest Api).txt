@@ -1,0 +1,91 @@
+-> GET /api/v1/Authors
+     Test Case 1:
+       * API: GET /api/v1/Authors
+       * Test Case: Status code is 200
+       * Expected Result: 200 OK
+       * Actual Result: 200 OK
+       * Status: Pass
+     Test Case 2:
+       * API: GET http://fakerestapi.azurewebsites.net/api/v1/Authors
+       * Test Case: "Check Body contains 'id' , 'idBook' , 'firstName' , 'lastName'"
+       * Expected Result: 200 OK
+       * Actual Result: 200 OK
+       * Status: Pass
+
+
+-> POST /api/v1/Authors
+     Test Case 1:
+       * API: POST http://fakerestapi.azurewebsites.net/api/v1/Authors
+       * Test Case: Status code is 200 
+       * Expected Result: 200 OK
+       * Actual Result: 200 OK
+       * Status: Pass
+     Test Case 2:
+       * API: POST http://fakerestapi.azurewebsites.net/api/v1/Authors
+       * Test Case: Validate the Author id is created
+       * Expected Result:200
+       * Actual Result: 200
+       * Status: 200
+
+
+     Test Case 3:
+       * API: POST http://fakerestapi.azurewebsites.net/api/v1/Authors
+       * Test Case: firstName or lastName is mandatory
+       * Expected Result: 400 Bad Request
+       * Actual Result: 400 Bad Request
+       * Status: Fail
+
+
+
+
+-> PUT /api/v1/Authors/{id}
+     Test Case 1:
+       * API: GET  http://fakerestapi.azurewebsites.net/api/v1/Authors/{id}
+       * Test Case: Status code is 200
+       * Expected Result: 200
+       * Actual Result: 200
+       * Status: Pass
+        
+     Test Case 2:
+       * API: GET  http://fakerestapi.azurewebsites.net/api/v1/Authors/{id}
+       * Test Case: Validate that firstName is 'Mahmoud' and lastName is 'Abdul Fattah'
+       * Expected Result: "firstName" = Mahmoud , "lastName" = Abdul Fattah
+       * Actual Result: "firstName" = Mahmoud , "lastName" = Abdul Fattah
+       * Status: Pass
+
+
+-> GET api/v1/Authors/{id}
+     Test Case 1:
+       * API: GET  http://fakerestapi.azurewebsites.net/api/v1/Authors/{id}
+       * Test Case: "Check firstName is 'Mahmoud' and lastName is 'Abdul Fattah'
+       * Expected Result: "firstName" = Mahmoud , "lastName" = Abdul Fattah
+       * Actual Result: "firstName" = First Name 1, "lastName" = Last Name 1
+       * Status: Fail
+
+
+
+
+-> GET /api/v1/Authors/authors/books/{idBook}
+     Test Case 1:
+       * API: GET http://fakerestapi.azurewebsites.net/api/v1/Authors/authors/books/10
+       * Test Case: Status code is 200
+       * Expected Result: 200
+       * Actual Result: 200
+       * Status: Pass
+
+     Test Case 2:
+       * API: GET  http://fakerestapi.azurewebsites.net/api/v1/Authors/authors/books/10
+       * Test Case: Validate the Book id  is updated successfully
+       * Expected Result: "idBook" = 10
+       * Actual Result: "idBook" = 10
+       * Status: Pass
+
+-> DELETE /api/v1/Authors/{id}
+     Test Case 1:
+       * API: DELETE http://fakerestapi.azurewebsites.net/api/v1/Authors/{id}
+       * Test Case: Status code is 200
+       * Expected Result: status code 200
+       * Actual Result: "status code 200
+       * Status: Pass
+
+

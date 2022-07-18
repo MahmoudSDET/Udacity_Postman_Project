@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "Get All Authors",
+			"name": "/api/v1/Authors",
 			"event": [
 				{
 					"listen": "test",
@@ -16,21 +16,14 @@
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
-							"pm.test(\"Body matches string\", function () {\r",
+							"\r",
+							"\r",
+							"pm.test(\"Check Body contains 'id' , 'idBook' , 'firstName' , 'lastName'\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"id\");\r",
 							"    pm.expect(pm.response.text()).to.include(\"idBook\");\r",
-							"\r",
-							"    pm.collectionVariables.set(\"IdAuthor\",pm.response.json()[pm.response.json().length-1].id+1)\r",
+							"    pm.expect(pm.response.text()).to.include(\"firstName\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"lastName\");\r",
 							"});\r",
-							"\r",
-							"\r",
-							"pm.collectionVariables.set(\"IdAuthor\",pm.response.json()[pm.response.json().length-1].id+1)\r",
-							"\r",
-							"\r",
-							"\r",
-							"\r",
-							"console.log(pm.response.json()[pm.response.json().length-1].id+1)\r",
-							"//var collectionVar=pm.collectionVariables.get(\"IdAuthor\")\r",
-							"\r",
 							""
 						],
 						"type": "text/javascript"
@@ -54,7 +47,7 @@
 			"response": []
 		},
 		{
-			"name": "Create Author",
+			"name": "/api/v1/Authors",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -64,7 +57,7 @@
 							"    console.log(res);\r",
 							"    \r",
 							"    console.log(res.json()[res.json().length-1].id+1);\r",
-							"    pm.collectionVariables.set(\"IdAuthor\",res.json()[1].id+1);\r",
+							"    pm.collectionVariables.set(\"IdAuthor\",res.json()[res.json().length-1].id+1);\r",
 							"});\r",
 							"\r",
 							""
@@ -91,7 +84,11 @@
 							"pm.test(\"Validate the Author id is created\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
 							"    pm.expect(jsonData.id).to.eql(parseInt(expected));\r",
-							"});"
+							"});\r",
+							"pm.test(\"firstName or lastName is mandatory\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -113,7 +110,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"id\": {{IdAuthor}},\r\n  \"idBook\": {{BookId}},\r\n  \"firstName\": \"{{$randomFirstName}}\",\r\n  \"lastName\": \"{{$randomLastName}}\"\r\n}\r\n"
+					"raw": "{\r\n  \"id\": {{IdAuthor}},\r\n  \"idBook\": {{BookId}},\r\n  \"firstName\": \"Mahmoud\",\r\n  \"lastName\": \"Abdul Fattah\"\r\n}\r\n"
 				},
 				"url": {
 					"raw": "{{BaseUrl}}api/v1/Authors",
@@ -129,8 +126,42 @@
 			"response": []
 		},
 		{
-			"name": "Update Author",
+			"name": "/api/v1/Authors/{id}",
 			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// expected result\r",
+							"\r",
+							"var expectedresult=pm.collectionVariables.get(\"NewUpdatedBookId\")\r",
+							"\r",
+							"\r",
+							"// actual\r",
+							"/*\r",
+							"pm.test(\"Validate the Book id  is updated successfully\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.idBook).to.eql(parseInt(expectedresult));\r",
+							"\r",
+							"\r",
+							"});*/\r",
+							"\r",
+							"pm.test(\"Validate that firstName is 'Mahmoud' and lastName is 'Abdul Fattah'\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.firstName).to.eql(\"Mahmoud\");\r",
+							"    pm.expect(jsonData.lastName).to.eql(\"Abdul Fattah\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
 				{
 					"listen": "prerequest",
 					"script": {
@@ -139,17 +170,6 @@
 							"var updatebookid=pm.collectionVariables.get(\"NewUpdatedBookId\");\r",
 							"\r",
 							"pm.collectionVariables.set(\"BookId\",updatebookid);"
-						],
-						"type": "text/javascript"
-					}
-				},
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
 						],
 						"type": "text/javascript"
 					}
@@ -171,18 +191,14 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"id\": {{IdAuthor}},\r\n  \"idBook\":{{NewUpdatedBookId}},\r\n  \"firstName\": \"{{$randomFirstName}}\",\r\n  \"lastName\": \"{{$randomLastName}}\"\r\n}"
+					"raw": "{\r\n  \"id\": {{IdAuthor}},\r\n  \"idBook\":{{NewUpdatedBookId}},\r\n  \"firstName\": \"Mahmoud\",\r\n  \"lastName\": \"Abdul Fattah\"\r\n}"
 				},
 				"url": {
-					"raw": "https://fakerestapi.azurewebsites.net/api/v1/Authors/{{IdAuthor}}",
-					"protocol": "https",
+					"raw": "{{BaseUrl}}api/v1/Authors/{{IdAuthor}}",
 					"host": [
-						"fakerestapi",
-						"azurewebsites",
-						"net"
+						"{{BaseUrl}}api"
 					],
 					"path": [
-						"api",
 						"v1",
 						"Authors",
 						"{{IdAuthor}}"
@@ -192,26 +208,47 @@
 			"response": []
 		},
 		{
-			"name": "Get Author",
+			"name": "/api/v1/Authors/{id}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Check firstName is 'Mahmoud' and lastName is 'Abdul Fattah'\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.firstName).to.eql(\"Mahmoud\");\r",
+							"    pm.expect(jsonData.lastName).to.eql(\"Abdul Fattah\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{BaseUrl}}api/v1/Authors/1",
+					"raw": "{{BaseUrl}}api/v1/Authors/{{IdAuthor}}",
 					"host": [
 						"{{BaseUrl}}api"
 					],
 					"path": [
 						"v1",
 						"Authors",
-						"1"
+						"{{IdAuthor}}"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Get Author with Book id",
+			"name": "/api/v1/Authors/authors/books/{idBook}",
 			"event": [
 				{
 					"listen": "test",
@@ -230,7 +267,9 @@
 							"\r",
 							"pm.test(\"Validate the bookes id is returned successfully with Author\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[0].idBook).to.eql(parseInt(expectedresult));\r",
 							"    pm.expect(jsonData[1].idBook).to.eql(parseInt(expectedresult));\r",
+							"    pm.expect(jsonData[2].idBook).to.eql(parseInt(expectedresult));\r",
 							"});\r",
 							""
 						],
@@ -258,7 +297,7 @@
 			"response": []
 		},
 		{
-			"name": "Delete The Author",
+			"name": "/api/v1/Authors/{id}",
 			"event": [
 				{
 					"listen": "test",
@@ -276,47 +315,6 @@
 			],
 			"request": {
 				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "{{BaseUrl}}api/v1/Authors/{{IdAuthor}}",
-					"host": [
-						"{{BaseUrl}}api"
-					],
-					"path": [
-						"v1",
-						"Authors",
-						"{{IdAuthor}}"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Check the Author is deleted",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"\r",
-							"/*\r",
-							"// Expected Result\r",
-							"\r",
-							"var Expected=\"Not Found\"\r",
-							"pm.test(\"Your test name\", function () {\r",
-							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.title).to.eql(\"Not Found\");\r",
-							"});*/"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
 				"header": [],
 				"url": {
 					"raw": "{{BaseUrl}}api/v1/Authors/{{IdAuthor}}",
@@ -376,7 +374,7 @@
 		},
 		{
 			"key": "NewUpdatedBookId",
-			"value": "1",
+			"value": "10",
 			"type": "string"
 		}
 	]
